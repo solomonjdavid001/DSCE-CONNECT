@@ -1,0 +1,47 @@
+﻿[
+  {
+    "image": "/images//dsce_faculties/cse/amutha.jpg",
+    "name": "DR. AMUTHA S",
+    "designation": "Professor",
+    "qualification": "M.Tech., Ph.D, LMISTE",
+    "specialization": "Image processing, BigData Analysis",
+    "email": "<a href='mailto:amutha-cs@dayanandasagar.edu' target='_blank'>amutha-cs@dayanandasagar.edu</a>",
+    "profile": "<a href=''assets/images/Faculty_Profile/CSE/Sunita Kumari.pdf'>See Profile</a>"
+  },
+  {
+    "image": "/images//dsce_faculties/cse/krish.jpg",
+    "name": "DR. KRISHNAN R",
+    "designation": "Professor",
+    "qualification": "M. Tech, Ph.D",
+    "specialization": "Computer vision, Software testing, AI & ML",
+    "email": "<a href='mailto:krishnan-cs@dayanandasagar.edu' target='_blank'>krishnan-cs@dayanandasagar.edu </a>",
+    "profile": "<a href='assets/images/Faculty_Profile/CSE/AMIT_KHAPARDE_CSE.pdf'>See Profile</a>"
+  },
+  {
+    "image": "/images/dsce_faculties/cse/Ravichandra.jpg",
+    "name": "Mr. Ravichandra H",
+    "designation": "Assistant Professor",
+    "qualification": "M.Tech,(Ph.D)",
+    "specialization": "Big data and applications, Data Mining, Theory of computations, Operations Research ",
+    "email": "<a href='mailto:ravichandra-cs@dayanandasagar.edu' target='_blank'>ravichandra-cs@dayanandasagar.edu </a>",
+    "profile": "<a href='#'>See Profile</a>"
+  },
+  {
+    "image": "/images/dsce_faculties/cse/muquitha.jpg",
+    "name": "MRS. MUQUITHA ALMAS",
+    "designation": "Assistant Professor",
+    "qualification": "M.Tech.(GGSIPU)<br> B.Tech.(MDU Rohtak)",
+    "specialization": "Machine Learning, Deep Learning",
+    "email": "<a href='mailto:almas-cs@dayanandasagar.edu' target='_blank'>almas-cs@dayanandasagar.edu</a>",
+    "profile": "<a href='assets/images/Faculty_Profile/CSE/jatin_verma_cse.pdf'>See Profile</a>"
+  },
+  {
+    "image": "/images/dsce_faculties/cse/Suman.jpg",
+    "name": "Mrs.Suman N",
+    "designation": "Assistant Professor",
+    "qualification": "M.Tech (Banasthali Vidyapeeth) <br>B.Tech (B R Ambedkar University)",
+    "specialization": "Natural Language Processing and Information Retrieval",
+    "email": "<a href='mailto:suman-cs@dayanandasagar-edu ' target='_blank'>suman-cs@dayanandasagar-edu </a>",
+    "profile": "<a href='#'>See Profile</a>"
+  }
+]

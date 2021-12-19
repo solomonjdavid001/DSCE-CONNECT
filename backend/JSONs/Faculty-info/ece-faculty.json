@@ -1,0 +1,49 @@
+[
+	{   "image": "/images//dsce_faculties/ise/ise_hod_old.jpg",
+		"name": "Dr. RAMA MOHAN BABU K N", 
+		"designation": " Associate Professor",
+		"qualification": "B.Tech, M.S, Ph.D",
+		"specialization": "Mobile Networks,Software Defined Network, Security issues in ComputerNetworks",
+		"email": "<a href='mailto:hod-ise@dayanandasagar.edu' target='_blank'>hod-ise@dayanandasagar.edu</a>",
+		"profile": "<a href='assets/images/Faculty_Profile/ECE/Sanjay_Kumar_ECE.pdf'>See Profile</a>"
+	},
+	{
+		"image": "/images/dsce_faculties/ise/suma.jpg",
+		"name": " Dr. SUMA V",
+		"designation": "Associate Professor",
+		"qualification": "BE, M.S, Ph.D ",
+		"specialization": "Software Engineering, Cloud Computing,Artificial Intelligence,Agile Technology",
+		"email": "<a href='mailto:suma-ise@dayanandasagar.edu ' target='_blank'>suma-ise@dayanandasagar.edu </a>",
+		"profile": "<a href='assets/images/Faculty_Profile/ECE/Dr_Vibhakar_Shrimali.pdf'>See Profile</a>"
+	},
+	
+	{
+		"image": "/images/dsce_faculties/ise/vaidehi.jpg",
+		"name": "MRS. VAIDEHI M.",
+		"designation": "Assistant Professor",
+		"qualification": "BE, M.E",
+		"specialization": "Computer Networks,Cloud Computing",
+		"email": "<a href='mailto:Vaidehim-ise@dayanandasagar.edu' target='_blank'>Vaidehim-ise@dayanandasagar.edu </a>",
+		"profile": "<a href='assets/images/Faculty_Profile/ECE/ABDUL_REHMAN_ECE.pdf'>See Profile</a>"
+	},
+	
+	{
+		"image": "/images/dsce_faculties/ise/latha.jpg",
+		"name": "Mrs Latha AP",
+		"designation": "Assistant Professor",
+		"qualification": "BE, M.Tech, (Ph.D)",
+		"specialization": "Computer Vision and Image Processing",
+		"email": "<a href='mailto:aplatha-ise@dayanandasagar.edu ' target='_blank'>aplatha-ise@dayanandasagar.edu </a>",
+		"profile": "<a href='assets/images/Faculty_Profile/ECE/ChandraMohan_Dharmapuri_ECE.pdf'>See Profile</a>"
+	},
+	{
+		"image": "/images/dsce_faculties/ise/vani.jpg",
+		"name": "MRS. VANI K A",
+		"designation": "Assistant Professor",
+		"qualification": "BE, M.Tech",
+		"specialization": "Computer Networks",
+		"email": "<a href='mailto:vanika-ise@dayananda.edu' target='_blank'>vanika-ise@dayananda.edu </a>",
+		"profile": "<a href='assets/images/Faculty_Profile/ECE/Deepak_Sant_ECE.pdf'>See Profile</a>"
+	}
+	
+]

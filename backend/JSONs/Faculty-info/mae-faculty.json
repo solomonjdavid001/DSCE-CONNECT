@@ -1,0 +1,49 @@
+[
+	{
+		"image": "/images/dsce_faculties/me/keshav.jpg",
+		"name": "Dr. R.KESHAVAMURTHY",
+		"designation": " Professor & Head of the Department",
+		"qualification": "B.E,M.Tech,Ph.D",
+		"specialization": " Mechanical Engineering",
+		"email": "<a href='mailto:hod-me@dayanandasagar.edu' target='_blank'>hod-me@dayanandasagar.edu</a>",
+		"profile": "<a href='assets/images/Faculty_Profile/MAE/Dr_Ajay_Singholi_MAE.pdf'>See Profile</a>"
+	},
+
+	{
+		"image": "/images/dsce_faculties/me/vasanth.jpg",
+		"name": "DR. S .A. VASANTHA KUMARA",
+		"designation": "Professor",
+		"qualification": "B.E, M.Tech, M.Phil, Ph.D",
+		"specialization": "Engineering Management,Entrepreneurship, Soft skills,Statistics & Decision science,OB, HRM,MIS, DBMS,Research methodology ",
+		"email": "<a href='mailto:savkumar@gmail.com' target='_blank'>savkumar@gmail.com</a>",
+		"profile": "<a href='assets/images/Faculty_Profile/MAE/Profile-Dr-Arindam-Kumar-Chanda.pdf'>See Profile</a>"
+	},
+	{
+		"image": "/images/dsce_faculties/me/aruna.jpg",
+		"name": "DR. M. ARUNADEVI",
+		"designation": "Associate Professor",
+		"qualification": "B.E., M. E., M.B.A., Ph.D.",
+		"specialization": " Machine LearninG, Artificial Intelligence,Optimization Techniques, Robotics, Manufacturing",
+		"email": "<a href='mailto:arunadevi-me@dayanandasagar.edu' target='_blank'>arunadevi-me@dayanandasagar.edu</a>",
+		"profile": "<a href='assets/images/Faculty_Profile/MAE/AJAY_LAMBA_MAE.pdf'>See Profile</a>"
+	},
+	{
+		"image": "/images/dsce_faculties/me/venky.jpg",
+		"name": "DR. M. K. VENKATESH",
+		"designation": "Associate Professor ",
+		"qualification": "BE, M.Tech, Ph.D",
+		"specialization": "Maintenance Engineering",
+		"email": "<a href='mailto:mkvenkatesh-me@dayanandasagar.edu' target='_blank'>mkvenkatesh-me@dayanandasagar.edu</a>",
+		"profile": "<a href='assets/images/Faculty_Profile/MAE/ANIL_KUMAR_MAE.pdf'>See Profile</a>"
+	},
+	{
+		"image": "/images/dsce_faculties/me/vinay.jpg",
+		"name": "MR. VINAY K. S.",
+		"designation": "Assistant Professor",
+		"qualification": "B.E, M.Tech, (Ph.D)",
+		"specialization": "Operations Management,Simulation Modelling and Analysis,Project Management",
+		"email": "<a href='mailto:vinaysgv2008@gmail.com' target='_blank'>vinaysgv2008@gmail.com</a>",
+		"profile": "<a href='assets/images/Faculty_Profile/MAE/Dr_Anurag_Dixit_MAE.pdf'>See Profile</a>"
+	}
+	
+]

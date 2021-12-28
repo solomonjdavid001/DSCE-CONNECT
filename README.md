@@ -1,2 +1,2 @@
-# DSCE-Connect
+# DSCE-CONNECT
  

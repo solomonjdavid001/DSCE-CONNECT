@@ -1,3 +1,4 @@
 # DSCE-Connect
-#hello
+College Website which included both acaddemics as well as non-academics Details
+Link : 
  

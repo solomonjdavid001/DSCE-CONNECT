@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys;
 import time
 import xlsxwriter
 import XLUtils
+import openpyxl
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -28,7 +29,9 @@ submit = driver.find_element_by_xpath("//a[normalize-space()='LOGIN']")
 submit.click()
 
 path = "C:\\Users\Solomon\Desktop\Login_Test.xlsx"
- 
+wb=openpyxl.load_workbook("C:\\Users\Solomon\Desktop\Login_Test.xlsx")
+sh1 = wb.active
+
 rows=XLUtils.getRowCount(path,'Sheet1')
 
 def slow_type(element: WebElement, text: str, delay: float=0.2):
@@ -37,8 +40,8 @@ def slow_type(element: WebElement, text: str, delay: float=0.2):
         element.send_keys(character)
         time.sleep(delay)
 
-f = open("C:\\Users\Solomon\Desktop\Selenium Test Results.txt", "a")
-i=1
+f = open("C:\Projects\DSCE-CONNECT\DSCE-CONNECT\Testing\Results.txt", "a")
+i=2
 for r in range(2,rows+1):
     username=XLUtils.readData(path,'Sheet1',r,1)
     password=XLUtils.readData(path,'Sheet1',r,2)
@@ -52,14 +55,12 @@ for r in range(2,rows+1):
     submit.click()
 
     if "http://localhost:3036/dashboard" == driver.current_url:
-        f.write("Test"+str(i)+"----->Passed")
-        f.write('\n')
+        sh1.cell(row = i,column=3,value="Test"+str(i)+"----->Passed :)")
         time.sleep(1)
         driver.back()
         driver.refresh()
     else:
-        f.write("Test"+str(i)+"----->Failed")
-        f.write('\n')
+        sh1.cell(row = i,column=3,value="Test"+str(i)+"----->Failed :(")
         time.sleep(1)
         driver.refresh()
     i=i+1
@@ -67,5 +68,6 @@ for r in range(2,rows+1):
     driver.refresh()
 
 f.close()
+wb.save("C:\\Users\Solomon\Desktop\Login_Test.xlsx")
 time.sleep(0.3)
 driver.quit()

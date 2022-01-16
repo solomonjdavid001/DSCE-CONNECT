@@ -2,6 +2,7 @@ from types import ClassMethodDescriptorType
 from selenium import webdriver;
 from selenium.webdriver.common.keys import Keys; 
 import time
+import xlsxwriter
 import XLUtils
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,7 +14,7 @@ from random import randint
 from selenium.common.exceptions import NoSuchElementException
 driver = webdriver.Chrome(executable_path='C:\selenium driver\chromedriver.exe')
 
-driver.get("https://dsce-connect-website.vercel.app/index.html")
+driver.get("https://dsce-connect-ruddy.vercel.app/")
 driver.maximize_window()
 time.sleep(2)
 
@@ -26,7 +27,7 @@ time.sleep(0.3)
 submit = driver.find_element_by_xpath("//a[normalize-space()='LOGIN']")
 submit.click()
 
-path = "C:\Projects\DSCE-CONNECT\DSCE-CONNECT\Testing\Login_Test.xlsx"
+path = "C:\\Users\Solomon\Desktop\Login_Test.xlsx"
  
 rows=XLUtils.getRowCount(path,'Sheet1')
 
@@ -36,24 +37,35 @@ def slow_type(element: WebElement, text: str, delay: float=0.2):
         element.send_keys(character)
         time.sleep(delay)
 
+f = open("C:\\Users\Solomon\Desktop\Selenium Test Results.txt", "a")
+i=1
 for r in range(2,rows+1):
     username=XLUtils.readData(path,'Sheet1',r,1)
     password=XLUtils.readData(path,'Sheet1',r,2)
-    username1 = driver.find_element_by_xpath("//input[@placeholder='Username']")        
+    username1 = driver.find_element_by_xpath("/html/body/form/div[1]/input")        
     text = username
     slow_type(username1, text)
-    password1 = driver.find_element_by_xpath("//input[@placeholder='Password']")
+    password1 = driver.find_element_by_xpath("/html/body/form/div[2]/input")
     text = password
     slow_type(password1, text)
-
-    if driver.find_element_by_xpath('/html/body/form/h1'):
-        print("Element exists")
-
-    submit = driver.find_element_by_xpath("//input[@value='Login']")
+    submit = driver.find_element_by_xpath("/html/body/form/button")
     submit.click()
 
+    if "http://localhost:3036/dashboard" == driver.current_url:
+        f.write("Test"+str(i)+"----->Passed")
+        f.write('\n')
+        time.sleep(1)
+        driver.back()
+        driver.refresh()
+    else:
+        f.write("Test"+str(i)+"----->Failed")
+        f.write('\n')
+        time.sleep(1)
+        driver.refresh()
+    i=i+1
+    time.sleep(0.3)
+    driver.refresh()
 
-
-
+f.close()
 time.sleep(0.3)
 driver.quit()

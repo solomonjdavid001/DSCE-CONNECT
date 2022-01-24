@@ -1,5 +1,5 @@
 <head>
- 
+  <title>loginpage</title>
     <%- include('../public/css/login.ejs'); %>
     
     <a class="idead"  >
@@ -11,7 +11,9 @@
 
 <form class="container" action="/users/login" method="POST">
   <h1> Login </h1>
+  <h3 style="color: rgb(161, 7, 7);">
 <%- include ('./partials/messages') %>
+</h3>
 <div>
 <input
 type="text"

@@ -54,12 +54,12 @@ for r in range(2,rows+1):
     submit.click()
 
     if "http://localhost:3036/dashboard" == driver.current_url:
-        sh1.cell(row = i,column=3,value="Test"+str(i)+"----->Passed :)")
+        sh1.cell(row = i,column=3,value="Test"+str(i-1)+"----->Passed :)")
         time.sleep(1)
         driver.back()
         driver.refresh()
     else:
-        sh1.cell(row = i,column=3,value="Test"+str(i)+"----->Failed :(")
+        sh1.cell(row = i,column=3,value="Test"+str(i-1)+"----->Failed :(")
         time.sleep(1)
         driver.refresh()
     i=i+1

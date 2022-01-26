@@ -11,12 +11,13 @@ import logging
 from random import randint
 from selenium.common.exceptions import NoSuchElementException
 
-driver = webdriver.Chrome(executable_path="C:\selenium driver\chromedriver.exe")
+driver = webdriver.Chrome(executable_path="C:\\Users\user\Desktop\selenium_help-main\chromedriver")
 
 driver.get("https://dsce-connect-website.vercel.app/index.html")
 driver.maximize_window()
 a = ActionChains(driver)
 print(driver.title)
+print("test successfull-website is being able to open in chrome")
 time.sleep(2)
 
 #ABOUT PAGE
@@ -24,6 +25,7 @@ m = driver.find_element_by_xpath("//a[normalize-space()='ABOUT']")
 a.move_to_element(m).perform()
 time.sleep(0.6)
 driver.find_element_by_xpath("//a[normalize-space()='ABOUT']").click()
+print("test successsfull: about button is working")
 time.sleep(5)
 
 #NOTICES PAGE
@@ -35,6 +37,7 @@ time.sleep(2)
 driver.find_element_by_id("TableInput").send_keys("FIN")
 time.sleep(3.7)
 driver.find_element_by_xpath("//*[@id='GbpecTable']/tr[2]/td[3]/a").click()
+print("test successsfull: notices button is working")
 time.sleep(2)
 p= driver.window_handles[0]
 #obtain browser tab window
@@ -56,6 +59,7 @@ driver.find_element_by_xpath("//a[normalize-space()='EVENTS']").click()
 time.sleep(2)
 driver.find_element_by_xpath("/html/body/header/div/div/div/div[3]/div/a").click()
 time.sleep(2)
+print("test successfull: events page is opening")
 
 #PROJECTS PAGE
 p = driver.find_element_by_xpath("//a[normalize-space()='PROJECTS']")
@@ -67,6 +71,7 @@ driver.execute_script("window.scrollBy(0,600)","")
 time.sleep(2)
 driver.execute_script("window.scrollBy(0,700)","")
 time.sleep(2)
+print("test successfull: projects page is being opened")
 
 #PLACEMENT PAGE
 q = driver.find_element_by_xpath("//a[normalize-space()='PLACEMENTS']")
@@ -80,6 +85,7 @@ driver.execute_script("window.scrollBy(0,500)","")
 time.sleep(2)
 driver.execute_script("window.scrollBy(0,400)","")
 time.sleep(7)
+print("test successfull: placements page is being opened")
 
 #ACADEMICS PAGE
 
@@ -91,6 +97,7 @@ driver.find_element_by_xpath("//a[normalize-space()='CONTACT']").click()
 time.sleep(2)
 driver.execute_script("window.scrollBy(0,500)","")
 time.sleep(2)
+print("test successfull: contact page is being opened")
 
 #LOGIN PAGE
 driver.find_element_by_xpath("//a[normalize-space()='HOME']").click()
@@ -100,6 +107,7 @@ a.move_to_element(s).perform()
 time.sleep(0.5)
 driver.find_element_by_xpath("//a[normalize-space()='LOGIN']").click()
 time.sleep(2)
+print("test successfull: login page is being opened")
 def slow_type(element: WebElement, text: str, delay: float=0.3):
     """Send a text to an element one character at a time with a delay."""
     for character in text:
@@ -120,4 +128,5 @@ time.sleep(1.5)
 
 driver.find_element_by_xpath("/html/body/header/a/img").click()
 time.sleep(5)
+print("test failed: students credentials page is not being opened")
 driver.quit()

@@ -1,0 +1,339 @@
+class student
+{
+	int regno;
+	void getno(int n)
+	{
+		regno = n;
+	}
+	void putno()
+	{
+		System.out.println("Regno: "+regno);
+	}
+}
+class test extends student
+{
+	float m1,m2;
+	void getmarks(float a,float b)
+	{
+		m1 = a;
+		m2 = b;
+	}
+	void putmarks()
+	{
+		System.out.println("M1: "+m1);
+		System.out.println("M2: "+m2);
+	}
+}
+interface sports
+{
+	float sportwt = 6.0f;
+	void putwt();
+}
+class result extends test implements sports
+{
+	float tot;
+	public void putwt()
+	{
+		System.out.println("Sport wt: "+sportwt);
+	}
+	void display()
+	{
+		tot = m1+m2+sportwt;
+		putno();
+		putmarks();
+		putwt();
+		System.out.println("Total: "+tot);
+	}
+}
+public class clsmultiple {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		result r = new result();
+		r.getno(1001);
+		r.getmarks(79f, 95f);
+		r.display();
+	}
+
+}
+
+
+
+
+
+// TODO Auto-generated method stub
+		Maruti800 obj = new Maruti800();
+		obj.vehicletype();
+		obj.brand();
+		obj.speed();
+	}
+}
+
+
+import java.applet.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class MouseEvents extends Applet implements MouseListener,MouseMotionListener {
+	String msg=" ";
+	int x=0,y=0;
+	public void init()
+	{
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+	public void mouseClicked(MouseEvent m)
+	{
+		int x=10;
+		int y=10;
+		msg="mouse clicked";
+		repaint();
+		
+	}
+	public void mouseEntered(MouseEvent m)
+	{
+		int x=10;
+		int y=10;
+		msg="mouse entered";
+		repaint();
+		
+	}
+	public void mouseExited(MouseEvent m)
+	{
+		int x=10;
+		int y=10;
+		msg="mouse exited";
+		repaint();
+		
+	}
+	public void mousePressed(MouseEvent m)
+	{
+		int x=m.getX();
+		int y=m.getY();
+		msg="down";
+		repaint();
+		
+	}
+	public void mouseReleased(MouseEvent m)
+	{
+		int x=m.getX();
+		int y=m.getY();
+		msg="up";
+		repaint();
+		
+	}
+	public void mouseDragged(MouseEvent m)
+	{
+		int x=m.getX();
+		int y=m.getY();
+		msg="*";
+		showStatus("dragged at"+x+"&"+y);
+		repaint();
+	}
+	public void mouseMoved(MouseEvent m)
+	{
+		showStatus("Moved at"+m.getX()+"&"+m.getY());
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		g.drawString(msg, x, y);
+	}
+
+}
+
+
+import java.util.*;
+class square extends Thread
+{
+	int x;
+	public square(int num)
+	{
+		x =num;
+	}
+	public void run()
+	{
+		int square = x*x;
+		System.out.println("Square of "+x+" is: "+square);
+	}
+}
+class cube extends Thread
+{
+	int c;
+	public cube(int num)
+	{
+		c = num;
+	}
+	public void run()
+	{
+		int cube = c*c*c;
+		System.out.println("Cube of "+c+" is: "+cube);
+	}
+}
+class numbers extends Thread
+{
+	Random r = new Random();
+	public void run()
+	{
+		for(int i=0;i<7;i++)
+		{
+			int num = r.nextInt(100);
+			if(num%2==0)
+			{
+				square sq = new square(num);
+				sq.start();
+			}
+			else
+			{
+				cube cb = new cube(num);
+				cb.start();
+			}
+			try
+			{
+				Thread.sleep(1000);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		}
+	}
+}
+public class multi 
+{
+	public static void main(String[] args)
+	{
+	numbers n = new numbers();
+	n.start();
+}
+}
+
+
+
+import java.io.*;
+public class StringDemo 
+{
+	public static void main(String[] args)
+	{
+		String s1 = new String("ISE DSCE BANGALORE");
+		String s2 = new String("ise dsce bangalore");
+		System.out.println("String s1 is: "+s1);
+		System.out.println("String s2 is: "+s2);
+		System.out.println("Length of String s1 is: "+s1.length());
+		System.out.println("Index of r at String s2 is: "+s2.indexOf('r'));
+		System.out.println("UpperCase of s2 is: "+s2.toUpperCase());
+		System.out.println("LowerCase of s1 is: "+s1.toLowerCase());
+		System.out.println("s1.equals(s2): "+s1.equals(s2));
+		System.out.println("s1.equalsIgnoreCase(s2): "+s1.equalsIgnoreCase(s2));
+		int result = s1.compareTo(s2);
+		if(result == 0)
+		{
+			System.out.println("s1 is equal to s2");
+		}
+		else if(result > 0)
+		{
+			System.out.println("s1 is smaller than s2");
+		}
+		System.out.println("char at index 6 of s1 is: "+s1.charAt(6));
+		String s3 = s1.substring(4,12);
+		System.out.println("The string s3 is: "+s3);
+		System.out.println("Replacing g with a at s2: "+s2.replace('g','a'));
+		String s4 = "This is a book";
+		System.out.println("Trim s4: "+s4.trim());
+		System.out.println(s1.startsWith("ISE"));
+		System.out.println(s1.endsWith("LORE"));
+		System.out.println(s4.isEmpty());
+		System.out.println(s4.hashCode());
+		System.out.println(s1.contains("DSCE"));
+	}
+}
+
+
+import java.util.*;
+public class StringTokenizerDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n,sum=0;
+		System.out.println("Enter integers with one space");
+		String s = sc.nextLine();
+		StringTokenizer st = new StringTokenizer(s," ");
+		while(st.hasMoreTokens())
+		{
+			String temp = st.nextToken();
+			n = Integer.parseInt(temp);
+			sum+=n;
+		}
+		System.out.println("Sum = "+sum);
+	}
+}
+
+
+import p1.student;
+public class StudentTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		student s = new student();
+		s.getdata(123,"xyz");
+		s.putdata();
+	}
+
+}
+
+
+package p1;
+
+public class student {
+	int regno;
+	String name;
+	public void getdata(int r,String s)
+	{
+		regno = r;
+		name = s;
+	}
+	public void putdata()
+	{
+		System.out.println("regno= "+regno);
+		System.out.println("name= "+name);
+	}
+}
+
+
+
+import java.util.*;
+
+class MyException extends Exception
+{
+	public MyException(String message)
+	{
+		super(message);
+	}
+}
+public class userdef
+{
+	public static void validate(int age) throws MyException
+	{
+		if(age<18)
+			throw new MyException("Age is less cant vote");
+		else
+			System.out.println("Can vote");
+	}
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the age");
+		int age = sc.nextInt();
+		try
+		{
+			validate(age);
+		}
+		catch(MyException e)
+		{
+			System.out.println("Exception Caught");
+			System.out.println(e);
+		}
+		sc.close();
+	}
+}

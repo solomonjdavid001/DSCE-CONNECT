@@ -1,0 +1,290 @@
+Pro-9: Dynamic HTML form
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+</head>
+<body>
+<form method="post" action="login">
+ User Name:<input type="text" name="name" /><br/>
+ Password:<input type="text" name="pass" /><br/>
+ <input type="submit" value="login" />
+ </form>
+</body>
+</html>
+
+Login.html
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.sql.*;
+public class Login extends HttpServlet {
+ protected void doPost(HttpServletRequest request, HttpServletResponse response)
+ throws ServletException, IOException {
+ response.setContentType("text/html;charset=UTF-8");
+ PrintWriter out = response.getWriter();
+ 
+ String uname = request.getParameter("name");
+ String upass = request.getParameter("pass");
+ if(uname.equals("Student") && upass.equals("ise-dsce")){
+ RequestDispatcher rs = request.getRequestDispatcher("Welcome");
+ rs.forward(request, response);
+ }
+ else
+ {
+ out.println("Username or Password incorrect");
+ RequestDispatcher rs = request.getRequestDispatcher("index.html");
+ rs.include(request, response);
+ }
+ } 
+}
+
+
+Welcome.java
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.sql.*;
+public class Welcome extends HttpServlet {
+ protected void doPost(HttpServletRequest request, HttpServletResponse response)
+ throws ServletException, IOException {
+ response.setContentType("text/html;charset=UTF-8");
+ String uname = request.getParameter("name");
+ PrintWriter out = response.getWriter();
+ out.println("Welcome "+ uname);
+ } 
+}
+
+
+web.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Welcome</display-name>
+  <servlet>
+ <servlet-name>Login</servlet-name>
+ <servlet-class>Login</servlet-class>
+ </servlet>
+ <servlet>
+ <servlet-name>Welcome</servlet-name>
+ <servlet-class>Welcome</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ <servlet-name>Login</servlet-name>
+ <url-pattern>/login</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ <servlet-name>Welcome</servlet-name>
+ <url-pattern>/Welcome</url-pattern>
+ </servlet-mapping>
+</web-app>
+  
+
+Pro-10: SessionTracking
+
+SessionTrack.html
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+public class SessionTrack extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+// TODO Auto-generated method stub
+HttpSession session = request.getSession(true);
+Date createTime = new Date(session.getCreationTime());
+Date lastAccessTime = new Date(session.getLastAccessedTime());
+String title = "Welcome";
+Integer visitCount = new Integer(0);
+String visitCountKey = new String("visitCount");
+String userIDKey = new String("userID");
+String userID = new String("ISE-DSCE");
+if (session.isNew()) {
+title = "Welcome to my website";
+session.setAttribute(userIDKey, userID);
+} else {
+visitCount = (Integer)session.getAttribute(visitCountKey);
+visitCount = visitCount + 1;
+userID = (String)session.getAttribute(userIDKey);
+}
+session.setAttribute(visitCountKey, visitCount);
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+String docType =
+"<!doctype html public \"-//w3c//dtd html 4.0 " +
+"transitional//en\">\n";
+out.println(docType +
+"<html>\n" +
+"<head><title>" + title + "</title></head>\n" +
+"<body bgcolor = \"#f0f0f0\">\n" +
+"<h1 align = \"center\">" + title + "</h1>\n" +
+"<h2 align = \"center\">Session Infomation</h2>\n" +
+"<table border = \"1\" align = \"center\">\n" +
+"<tr bgcolor = \"#949494\">\n" +
+" <th>Session info</th><th>value</th> </tr>\n" +
+"<tr>\n" +
+" <td>id</td>\n" +
+" <td>" + session.getId() + "</td> </tr>\n" +
+"<tr>\n" +
+" <td>Creation Time</td>\n" +
+" <td>" + createTime + " </td> </tr>\n" +
+"<tr>\n" +
+" <td>Time of Last Access</td>\n" +
+" <td>" + lastAccessTime + " </td> </tr>\n" +
+"<tr>\n" +
+" <td>User ID</td>\n" +
+" <td>" + userID + " </td> </tr>\n" +
+"<tr>\n" +
+" <td>Number of visits</td>\n" +
+" <td>" + visitCount + "</td> </tr>\n" +
+"</table>\n" +
+"</body> </html>"
+);
+}
+}
+
+web.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/webapp_3_1.xsd" id="WebApp_ID" version="3.1">
+
+<welcome-file-list>
+ <welcome-file>SessionTrack</welcome-file>
+ </welcome-file-list>
+ <servlet>
+<servlet-name>SessionTrack</servlet-name>
+ <servlet-class>SessionTrack</servlet-class>
+</servlet>
+<servlet-mapping>
+ <servlet-name>SessionTrack</servlet-name>
+ <url-pattern>/SessionTrack</url-pattern>
+</servlet-mapping>
+</web-app>
+ 
+
+Pro-11: JSP Validation
+
+Welcome.jsp
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title> Welcome Page</title>
+</head>
+<body>
+<center>
+<%! String id; %>
+<% id=request.getParameter("uname"); %>
+<h1> Welcome <%=id%> </h1>
+<br />
+<h1> to the home page </h1>
+</center>
+</body>
+</html>
+
+Error.jsp
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body bgcolor = "pink">
+<h1> INVALID User Credentials !! </h1>
+</body>
+</html>
+
+Validation.jsp
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Validation Page</title>
+</head>
+<body>
+<%! String uid="ISEStudent"; %>
+<%! String pass="ise-dsce"; %>
+<%! String id, password; %>
+<% id=request.getParameter("uname"); %>
+<% password=request.getParameter("password"); %>
+<% if(uid.equals(id)&&pass.equals(password))
+{
+%>
+<jsp:forward page="welcome.jsp"/>
+<%
+}
+else {
+%>
+<jsp:forward page="error.jsp" />
+<%
+}
+%>
+
+Login.jsp
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title> Login Page </title>
+</head>
+<body>
+<form action="validation.jsp">
+<table border="0">
+<tr>
+<td> USER ID: </td>
+<td>
+<input type="text" name="uname" /> <br>
+</td>
+</tr>
+<tr>
+<td> PASSWORD: </td>
+<td>
+<input type="password" name="password" /> <br>
+</td>
+</tr>
+<tr> <td align ="center">
+<input type="submit" value="submit" >
+<input type="reset" value="reset">
+</td>
+</tr>
+</table>
+</form>
+</body>
+
+Pro-12: FontSize JSP
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body bgcolor = "yellow">
+<center>
+<b><i>
+<%for(int fontSize=1;fontSize<=7;fontSize++){ %>
+<font face = "Arial" color="blue" size="<%=fontSize %>">  
+Java Lab
+<br></br>
+</font>
+<%} %>
+
+</i></b>
+</center>
+
+</body>
+</html>
